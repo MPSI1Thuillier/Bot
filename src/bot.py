@@ -26,7 +26,7 @@ from random import randint
 
 # On init le bot
 bot = commands.Bot(command_prefix='.')
-
+bot.remove_command('help')
 
 # Quand le bot est pret
 @bot.listen()
@@ -80,6 +80,42 @@ async def stop(ctx):
 #
 # Commandes de gestion des channels
 #
+
+# Commande help
+@bot.command()
+async def help(ctx):
+    # Affiche ce message d'aide
+    await ctx.send("""
+__**Citation**__
+.citation \t\t Donne une citation au hasard.
+.citation [*Auteur*] \t\t Donne une citation de votre auteur preferé.
+.wallpaper \t\t Affiche une citation sur un joli fond.
+.questionprepa \t\t Arriverez vous à trouver la suite de cette citation ?
+.count \t\t Affiche le nombre de citations.
+                    
+__**Jeux**__
+.ping \t\t Pong !
+.morpion \t\t Faites un morpion avec un ami.
+.morpionbot \t\t Faites un morpion contre moi.
+.pileface \t\t Pile ou face ! Que pariez vous ?
+.item \t\t Affiche un item de RPG.
+                    
+__**Audio**__
+.audio \t\t Je me joins à votre channel.
+.finaudio \t\t Je me deconnecte de votre channel.
+.music [*URL* ou *description*] \t\t Je joue votre musique preferée. :musical_note:
+.volume [de *0* à *100*] \t\t Regle mon volume.
+                    
+__**Autres**__
+.clear \t\t Je supprime le message que je viens d'envoyer.
+.empty \t\t Je supprime :100: message d'un channel. 
+.choux [*Votre Email*] \t\t Recevez un beau choux à la crème par mail. :mailbox_with_mail:
+.contribution \t\t Pour ceux qui veulent contribuer au bot. ;)
+.reboot \t\t Cette commande me reboot. (Oui bon ca arrive a tout le monde de bugger :unamused: )
+.stop \t\t Cette commande me stop! (S'il vous plait n'appuyer pas :pray: :pray: !)
+.help \t\t Affiche ce message.
+.token \t\t Mon token !
+""")
 
 # Commande de clear
 @bot.command()
