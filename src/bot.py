@@ -85,6 +85,7 @@ async def stop(ctx):
 @bot.command()
 async def help(ctx):
     # Affiche ce message d'aide
+    await ctx.message.delete()
     await ctx.send("""
 __**Citation**__
 .citation \t\t Donne une citation au hasard.
@@ -352,6 +353,7 @@ async def on_message(message):
 @bot.command()
 async def audio(ctx):
     channel = ctx.author.voice.channel
+    await ctx.message.delete()
     if ctx.voice_client is not None:
         return await ctx.voice_client.move_to(channel)
     await channel.connect()
@@ -362,6 +364,7 @@ async def music(ctx, url):
         player = await YTDLSource.from_url(url, loop=bot.loop, stream=True)
         ctx.voice_client.play(player, after=lambda e: print('Erreur de lecture : %s' % e) if e else None)
     await ctx.send('En cours de lecture : {}'.format(player.title))
+    await ctx.message.delete()
 
 @bot.command()
 async def volume(ctx, volume: int):
@@ -369,10 +372,12 @@ async def volume(ctx, volume: int):
         return await ctx.send("Je ne suis pas connecté à un canal audio !")
     ctx.voice_client.source.volume = volume / 100
     await ctx.send("Volume réglé à {}%".format(volume))
+    await ctx.message.delete()
 
 @bot.command()
 async def finaudio(ctx):
     await ctx.voice_client.disconnect()
+    await ctx.message.delete()
 
 @music.before_invoke
 async def ensure_voice(ctx):
