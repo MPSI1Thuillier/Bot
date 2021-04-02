@@ -16,7 +16,7 @@ def envoyer_un_choux(target):
     msg = MIMEMultipart()
 
     # On setup les paramètres
-    msg['From']='Choux à la crème <choux@latablebleuequiestaufonddujardinestentrainderouiller.fr>'
+    msg['From']='choux@latablebleuequiestaufonddujardinestentrainderouiller.fr'
     msg['To']=target
     msg['Subject']='Choux à la crème'
 
