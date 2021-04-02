@@ -10,18 +10,18 @@ def envoyer_un_choux(target):
     # Connection au serveur
     s = SMTP(host='mail.nathanfallet.me', port=587)
     s.starttls()
-    s.login('choux@nathanfallet.me', getenv('CHOUXPASSWORD'))
+    s.login('choux@latablebleuequiestaufonddujardinestentrainderouiller.fr', getenv('CHOUXPASSWORD'))
 
     # Creer un message
     msg = MIMEMultipart()
 
     # On setup les paramètres
-    msg['From']='choux@nathanfallet.me'
+    msg['From']='Choux à la crème <choux@latablebleuequiestaufonddujardinestentrainderouiller.fr>'
     msg['To']=target
     msg['Subject']='Choux à la crème'
 
     # Attacher le message
-    msg.attach(MIMEText('Un choux à la crème pour toi !\n', 'plain'))
+    msg.attach(MIMEText('Un choux à la crème pour toi !\n\n(Ce message a été généré automatiquement, merci de ne pas y répondre)\n\n', 'plain'))
 
     # Attacher l'image
     with open('images/choux.jpeg', 'rb') as fil:
