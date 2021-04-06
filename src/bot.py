@@ -111,6 +111,7 @@ __**Autres**__
 .clear \t\t Je supprime le message que je viens d'envoyer.
 .empty \t\t Je supprime :100: message d'un channel. 
 .choux [*Votre Email*] \t\t Recevez un beau choux à la crème par mail. :mailbox_with_mail:
+.qcm [*Numéro*] \t\t Lancer un QCM avec comme choix A, B, C ou D
 .contribution \t\t Pour ceux qui veulent contribuer au bot. ;)
 .reboot \t\t Cette commande me reboot. (Oui bon ca arrive a tout le monde de bugger :unamused: )
 .stop \t\t Cette commande me stop! (S'il vous plait n'appuyer pas :pray: :pray: !)
@@ -243,6 +244,20 @@ async def choux(ctx, target):
         envoyer_un_choux(target)
 
     await ctx.send("Fais un tour dans ta boite mail ! (ça peut prendre quelques minutes)")
+    await ctx.message.delete()
+
+
+# Commande de QCM
+@bot.command()
+async def qcm(ctx, n: int):
+    # On envoie un message
+    message = await ctx.send("Question N°" + str(n))
+
+    # On ajoute les réactions
+    await message.add_reaction("🇦")
+    await message.add_reaction("🇧")
+    await message.add_reaction("🇨")
+    await message.add_reaction("🇩")
     await ctx.message.delete()
 
 

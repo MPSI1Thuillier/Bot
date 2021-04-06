@@ -17,6 +17,7 @@ Pour cela, il vous faut créer un fork de ce repository, et le soumettre en pull
 | .item              | Affiche un item de RPG                                     |
 | .pileface          | Simule un lancer de pièce                                  |
 | .choux "Email"     | Recevoir un choux à la crème par mail                      |
+| .qcm "Numéro"      | Lancer un QCM avec comme choix A, B, C ou D                |
 | .morpion           | Démarre une partie de Morpion à deux                       |
 | .morpionbot        | Démarre une partie de Morpion joueur contre AI             |
 | .questionprepa     | Démarre une partie de Question pour un préparationiste     |
