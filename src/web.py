@@ -38,4 +38,4 @@ async def discord_mpsi1():
 # Liens discord (Option info)
 @app.route('/discord/info')
 async def discord_info():
-    return redirect('https://discord.gg/6YqB8Eqq')
+    return redirect('https://discord.gg/M2UEMmfu8E')
